@@ -1,64 +1,93 @@
 import { personInfo } from "./type";
 
-const randomString = (length: number) => {
-  const randomLength = Math.floor(Math.random() * length) + 1;
-  let result = "";
-  for (let i = 0; i < randomLength; i++) {
-    result += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-  }
-  return result;
+const sortUserName = (user: personInfo[]) => {
+  const newArray = user
+    .slice()
+    .sort((prev: personInfo, current: personInfo) => {
+      const prevValue = `${prev.firstName}${prev.lastName}${prev.customerID}`;
+      const currentValue = `${current.firstName}${current.lastName}${current.customerID}`;
+      return prevValue.localeCompare(currentValue);
+    });
+  return newArray;
 };
 
-const randomArryGener = () => {
-  const array: personInfo[] = [];
-  const randomLength = Math.floor(Math.random() * 10);
-  for (let i = 0; i < randomLength; i++) {
-    console.log(randomString(2));
+function sortByType(user: personInfo[]) {
+  const order: string[] = [
+    "systemAnalytics",
+    "engineer",
+    "productOwner",
+    "freelancer",
+    "student",
+  ];
 
-    // array.push({
+  const newArray = user
+    .slice()
+    .sort((prev: personInfo, current: personInfo) => {
+      const prevValue: number = order.indexOf(prev.profession);
+      const currentValue: number = order.indexOf(current.profession);
 
-    // });
-  }
+      return prevValue - currentValue;
+    });
+
+  return newArray;
+}
+
+const getUniqueNumber = (array: number[]) => {
+  array.map((num: number) => {
+    if (array.indexOf(num) === array.lastIndexOf(num)) {
+      console.log(num);
+    }
+  });
 };
 
 export function exam1(element: HTMLButtonElement) {
   const dataArray: personInfo[] = [
     {
-      firstName: "xxx",
-      lastName: "xxx",
+      firstName: "lee",
+      lastName: "jack",
       customerID: 0,
-      note: "xxx",
-      profession: "student",
+      note: "",
+      profession: "engineer",
     },
     {
-      firstName: "xxx",
-      lastName: "xxx",
+      firstName: "chan",
+      lastName: "esan",
       customerID: 1,
-      note: "xxx",
-      profession: "student",
+      note: "incv",
+      profession: "systemAnalytics",
     },
     {
-      firstName: "xxx",
-      lastName: "xxx",
+      firstName: "wu",
+      lastName: "john",
       customerID: 2,
       note: "xxx",
-      profession: "student",
+      profession: "freelancer",
     },
     {
-      firstName: "xxx",
-      lastName: "xxx",
+      firstName: "lee",
+      lastName: "alan",
       customerID: 3,
       note: "xxx",
-      profession: "student",
+      profession: "productOwner",
     },
     {
-      firstName: "xxx",
-      lastName: "xxx",
+      firstName: "chu",
+      lastName: "alan",
       customerID: 4,
       note: "xxx",
       profession: "student",
     },
   ];
-  element.innerHTML = `排序`;
-  element.addEventListener("click", () => randomArryGener());
+  let items = [
+    1, 1, 1, 5, 2, 3, 4, 3, 3, 3, 3, 3, 3, 7, 8, 5, 4, 9, 0, 1, 3, 2, 6, 7, 5,
+    4, 4, 7, 8, 8, 0, 1, 2, 3, 1,
+  ];
+  getUniqueNumber(items);
+  console.log("sortUserName", sortUserName(dataArray));
+  console.log("sortByType", sortByType(dataArray));
 }
+
+/** Can you explain about Interface and Enum, and where will you be using,
+please make some examples. **/
+
+// interface 我會用在

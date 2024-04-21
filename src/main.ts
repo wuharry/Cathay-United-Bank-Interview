@@ -4,21 +4,24 @@ import viteLogo from "/vite.svg";
 import { exam1 } from "./exam1.ts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
+<div class="container">
+<div class="header">5/8 外出確認表</div>
+<div class="content">
+  <ol class="shop-list">
+    <li class="item">麵包</li>
+    <li class="item">短袖衣服</li>
+    <li class="item">飲用水</li>
+    <li class="item">帳篷</li>
+  </ol>
+  <ul class="shop-list">
+    <li class="item">暈車藥</li>
+    <li class="item">感冒藥</li>
+    <li class="item">丹木斯</li>
+    <li class="item">咳嗽糖漿</li>
+  </ul>
+</div>
+<div class="footer">以上僅共參考</div>
+</div>
 `;
 
 exam1(document.querySelector<HTMLButtonElement>("#counter")!);
