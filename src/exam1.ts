@@ -90,4 +90,44 @@ export function exam1(element: HTMLButtonElement) {
 /** Can you explain about Interface and Enum, and where will you be using,
 please make some examples. **/
 
-// interface 我會用在
+// interface 我會用在定義某些會需要繼承其他型別的類型或是,如以下
+
+interface person {
+  name: string;
+}
+
+interface studentLis extends person {
+  ID: number;
+}
+
+// enum我會用來定義有固定值得的變數,通常會是用來控制流程用的
+enum Day {
+  MONDAY = "It's MONDAY!",
+  TUESDAY = "It's TUESDAY.",
+  WEDNESDAY = "It's WEDNESDAY.",
+  THURSDAY = "It's THURSDAY.",
+  FRIDAY = "It's a FRIDAY.",
+  SATURDAY = "It's a SATURDAY.",
+  SUNDAY = "It's a SUNDAY.",
+}
+
+function getDayCase(day: Day): string {
+  switch (day) {
+    case Day.MONDAY:
+      return Day.MONDAY;
+    case Day.TUESDAY:
+      return Day.TUESDAY;
+    case Day.WEDNESDAY:
+      return Day.WEDNESDAY;
+    case Day.THURSDAY:
+      return Day.THURSDAY;
+    case Day.FRIDAY:
+      return Day.FRIDAY;
+    case Day.SATURDAY:
+      return Day.SATURDAY;
+    case Day.SUNDAY:
+      return Day.SUNDAY;
+    default:
+      return "Unknown.";
+  }
+}

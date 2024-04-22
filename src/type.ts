@@ -1,9 +1,12 @@
-export interface personInfo {
+export type personInfo = {
   firstName: string;
   lastName: string;
   customerID: number;
   note: string | null;
-  profession: 'student'|'freelancer'|'productOwner'|
-  'engineer' |'systemAnalytics';
-}
-
+  profession:
+    | "student"
+    | "freelancer"
+    | "productOwner"
+    | "engineer"
+    | "systemAnalytics";
+};
